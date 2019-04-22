@@ -17,7 +17,7 @@ class QuotesByAuthor(scrapy.Spider):
 			for quote in response.css('div.quote'):
 				jsonitem = {
 					'text':quote.css('span.text::text').get(),
-					'author':quote.xpath('span/small/text()') .get(),
+					'author':quote.xpath('span/small/text()').get(),
 				}
 				self.log(jsonitem)
 				f.write(str(jsonitem))
